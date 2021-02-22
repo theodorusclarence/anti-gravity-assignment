@@ -30,7 +30,7 @@ export default function Nav({ children }) {
                 <div>{children}</div>
             </div>
             <div
-                className={`fixed z-20 inset-0 bg-black transition ${
+                className={`pointer-events-none fixed z-20 inset-0 bg-black transition ${
                     open ? 'bg-opacity-40' : 'bg-opacity-0'
                 }`}
             ></div>

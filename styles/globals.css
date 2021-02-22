@@ -67,3 +67,46 @@
         @apply w-11/12 mx-auto;
     }
 }
+
+.swiper-button-prev {
+    background-image: url('/images/carousel/left-arr.svg');
+}
+
+.swiper-button-next {
+    background-image: url('/images/carousel/right-arr.svg');
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: center;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    display: none;
+}
+
+.swiper-container-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+    bottom: 10px;
+    left: 50%;
+    width: auto;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 0.2rem 0.4rem;
+    margin: 0 auto;
+    transform: translateX(-50%);
+    border-radius: 0.2rem;
+}
+
+.swiper-pagination-bullet {
+    background: transparent;
+    opacity: 1;
+    border: 1px solid white;
+}
+
+.swiper-pagination-bullet-active {
+    background: white;
+}
