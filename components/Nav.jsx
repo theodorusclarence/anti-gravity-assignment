@@ -9,35 +9,34 @@ export default function Nav({ children }) {
     const [open, setOpen] = useState(false);
     return (
         <>
+            <header
+                className={`fixed top-0 z-10 flex items-center justify-between w-full h-12 px-4 py-8 bg-white shadow-md transition transform 
+                ${open ? '-translate-x-80' : 'translate-x-0'}`}
+            >
+                <div className='flex items-center space-x-4'>
+                    <img src='/images/logo.png' alt='logo' />
+                    <div>
+                        <p className='text-xs font-bold'>
+                            PT. Nusantara Jaya Sentosa
+                        </p>
+                        <p className='text-xs'>Main Dealer Suzuki Jawa Barat</p>
+                    </div>
+                </div>
+            </header>
             <div
                 className={`transition transform 
                 ${open ? '-translate-x-80' : 'translate-x-0'}`}
             >
-                <header className='fixed flex items-center justify-between w-full h-12 px-4 py-8 bg-white shadow-md'>
-                    <div className='flex items-center space-x-4'>
-                        <img src='/images/logo.png' alt='logo' />
-                        <div>
-                            <p className='text-xs font-bold'>
-                                PT. Nusantara Jaya Sentosa
-                            </p>
-                            <p className='text-xs'>
-                                Main Dealer Suzuki Jawa Barat
-                            </p>
-                        </div>
-                    </div>
-                </header>
-                <div>
-                    <div
-                        className={`fixed inset-0 bg-black transition ${
-                            open ? 'bg-opacity-40' : 'bg-opacity-0'
-                        }`}
-                    ></div>
-                    {children}
-                </div>
+                <div>{children}</div>
             </div>
+            <div
+                className={`fixed z-20 inset-0 bg-black transition ${
+                    open ? 'bg-opacity-40' : 'bg-opacity-0'
+                }`}
+            ></div>
 
             <aside
-                className={`fixed top-0 right-0 flex flex-col justify-between h-full px-6 bg-white pt-14 w-80 transition-transform transform 
+                className={`fixed z-20 top-0 right-0 flex flex-col justify-between h-full px-6 bg-white pt-14 w-80 transition-transform transform 
                 ${open ? 'translate-x-0' : 'translate-x-80'}
                 `}
             >
@@ -86,7 +85,7 @@ export default function Nav({ children }) {
             </aside>
             <button
                 onClick={() => setOpen((prev) => !prev)}
-                className='fixed flex items-center justify-center w-10 h-10 rounded-full bg-primary-400 right-3 top-3'
+                className='fixed z-30 flex items-center justify-center w-10 h-10 rounded-full bg-primary-400 right-3 top-3'
             >
                 <span className={`bg-white ${open ? 'active' : ''}`} />
                 <style jsx>{`
