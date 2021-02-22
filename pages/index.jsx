@@ -1,37 +1,49 @@
 import { NextSeo } from 'next-seo';
 import CustomLink from '@/components/CustomLink';
+import CardList from '@/components/CardList';
+import Footer from '@/components/Footer';
 
 export default function Home() {
     return (
         <>
             <NextSeo />
-
-            <main>
-                <section className=''>
-                    <div className='flex flex-col items-center justify-center min-h-screen layout'>
-                        <h1>
-                            <CustomLink href='https://github.com/theodorusclarence/nextjs-tailwind-starter'>
-                                NextJS Tailwind Starter
-                            </CustomLink>
+            <main className='pt-12 bg-brandGray-200'>
+                <section className='bg-primary-400'>
+                    <article className='px-6 pt-8 text-center text-white pb-36 layout'>
+                        <h1 className='text-lg font-semibold'>
+                            Temukan Outlet Suzuki terdekat di daerah sekitar
+                            Anda
                         </h1>
-                        <p className='mb-4'>
-                            By{' '}
-                            <CustomLink href='https://theodorusclarence.com'>
-                                Theodorus Clarence
+                    </article>
+                </section>
+                <section className='pb-12'>
+                    <article className='-mt-32 layout'>
+                        <CardList type='outlet' />
+                    </article>
+                </section>
+                <section className='bg-primary-400'>
+                    <article className='px-6 pt-8 text-center text-white pb-36 layout'>
+                        <h1 className='text-lg font-semibold'>
+                            Informasi Terbaru
+                        </h1>
+                        <p>Seputar Promo, Berita, Event dari Suzuki</p>
+                    </article>
+                </section>
+                <section className='pb-12'>
+                    <article className='-mt-32 layout'>
+                        <CardList type='info' />
+                        <div className='flex items-center'>
+                            <CustomLink
+                                href='#'
+                                className='inline-block px-12 mx-auto mt-8'
+                            >
+                                Lihat Semua Informasi
                             </CustomLink>
-                        </p>
-                        <CustomLink href='https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Ftheodorusclarence%2Fnextjs-tailwind-starter'>
-                            <img
-                                src='https://vercel.com/button'
-                                alt='Deploy with Vercel'
-                            />
-                        </CustomLink>
-                        <footer className='absolute text-gray-800 bottom-2'>
-                            © {new Date().getFullYear()}
-                        </footer>
-                    </div>
+                        </div>
+                    </article>
                 </section>
             </main>
+            <Footer />
         </>
     );
 }
