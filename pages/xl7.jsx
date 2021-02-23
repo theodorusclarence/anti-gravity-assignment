@@ -5,18 +5,16 @@ import { SwiperSlide } from 'swiper/react';
 import Image from 'next/image';
 import CustomLinkOnBlue from '@/components/CustomLinkOnBlue';
 import XlTabs from '@/components/XlTabs';
+import XlAccordionSection from '@/components/XlAccordionSection';
+import { priceData } from '@/data/data';
+import CustomLink from '@/components/CustomLink';
 
 export default function CarPage() {
     return (
         <>
             <NextSeo />
-            <main className='pt-16 bg-brandGray-200'>
-                <section>
-                    <article className='py-2 layout'>
-                        <h3 className='text-sm'>XL 7</h3>
-                    </article>
-                </section>
-                <section className='w-full bg-primary-400 layout'>
+            <main className='pt-32 bg-brandGray-200'>
+                <section id='overview' className='w-full bg-primary-400 layout'>
                     <Carousel>
                         {[1, 2, 3, 4].map((item) => (
                             <SwiperSlide key={item}>
@@ -68,14 +66,14 @@ export default function CarPage() {
                         </div>
                     </article>
                 </section>
-                <section className='bg-white'>
+                <section id='tipe' className='bg-white'>
                     <article className='py-8 layout'>
                         <XlTabs />
                     </article>
                 </section>
-                <section className='bg-primary-400'>
+                <section id='eksterior' className='bg-primary-400'>
                     <article className='flex flex-col w-full py-8 text-center text-white layout'>
-                        <h3 className='mb-4'>Exterior</h3>
+                        <h3 className='mb-4'>Eksterior</h3>
                         <figure className=''>
                             <Image
                                 src='/images/xl/xl7-eksterior.png'
@@ -93,7 +91,7 @@ export default function CarPage() {
                         </CustomLinkOnBlue>
                     </article>
                 </section>
-                <section className='mt-4 bg-primary-400'>
+                <section id='interior' className='mt-4 bg-primary-400'>
                     <article className='flex flex-col w-full py-8 text-center text-white layout'>
                         <h3 className='mb-4 text-lg tracking-wide uppercase'>
                             Interior
@@ -117,11 +115,38 @@ export default function CarPage() {
                     </article>
                 </section>
 
-                <section className=''>
+                <section id='spesifikasi' className='bg-white'>
                     <article className='py-8 text-center layout'>
                         <h3 className='mb-4 text-lg tracking-wide uppercase'>
                             Spesifikasi
                         </h3>
+                        <XlAccordionSection />
+                    </article>
+                </section>
+
+                <section id='harga' className='mt-4 bg-white'>
+                    <article className='flex flex-col py-8 text-center layout'>
+                        <h3 className='mb-4 text-lg tracking-wide uppercase'>
+                            DAFTAR HARGA
+                            <br />
+                            XL 7
+                        </h3>
+                        {priceData.map((data) => (
+                            <button className='flex w-full px-8 py-3 mt-4 text-sm text-left border rounded bg-brandGray-200 shadow-brand-bottom'>
+                                <p className='w-full font-semibold'>
+                                    {data.title}
+                                </p>
+                                <p className='w-full font-semibold'>
+                                    {data.price}
+                                </p>
+                            </button>
+                        ))}
+                        <CustomLink
+                            className='inline-block px-8 mx-auto mt-8'
+                            href='/xl7'
+                        >
+                            Lihat Semua Harga Mobil
+                        </CustomLink>
                     </article>
                 </section>
             </main>

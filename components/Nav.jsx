@@ -2,7 +2,9 @@ import { useState } from 'react';
 import { FiPhone } from 'react-icons/fi';
 import CustomLink from './CustomLink';
 import UnstyledLink from './UnstyledLink';
+import NavTabs from './NavTabs';
 import { useRouter } from 'next/router';
+import Modal from './Modal';
 
 const route = [
     'Beranda',
@@ -15,23 +17,49 @@ const route = [
 
 export default function Nav({ children }) {
     const [open, setOpen] = useState(false);
-    const { asPath } = useRouter();
+    const [showModal, setShowModal] = useState(false);
+
+    const { pathname } = useRouter();
+
+    const openModal = () => {
+        setShowModal(true);
+    };
+
     return (
         <>
             <header
                 className={`fixed top-0 z-10 flex items-center justify-between w-full h-12 px-4 py-8 bg-white shadow-md transition transform 
                 ${open ? '-translate-x-80' : 'translate-x-0'}`}
             >
-                <div className='flex items-center space-x-4'>
-                    <img src='/images/logo.png' alt='logo' />
-                    <div>
-                        <p className='text-xs font-bold'>
-                            PT. Nusantara Jaya Sentosa
-                        </p>
-                        <p className='text-xs'>Main Dealer Suzuki Jawa Barat</p>
+                <UnstyledLink href='/'>
+                    <div className='flex items-center space-x-4'>
+                        <img src='/images/logo.png' alt='logo' />
+                        <div>
+                            <p className='text-xs font-bold'>
+                                {pathname === '/'
+                                    ? 'PT. Nusantara Jaya Sentosa'
+                                    : 'Suzuki NJS Buah Batu'}
+                            </p>
+                            <p className='text-xs'>
+                                {pathname === '/'
+                                    ? 'Main Dealer Suzuki Jawa Barat'
+                                    : 'PT. Nusantara Jaya Sentosa'}
+                            </p>
+                        </div>
                     </div>
-                </div>
+                </UnstyledLink>
             </header>
+
+            {/* //* Nav Tabs for XL7 */}
+            {pathname === '/xl7' ? (
+                <>
+                    <div className='fixed z-10 w-full px-4 py-2 top-16 bg-brandGray-200 layout'>
+                        <h3 className='text-sm'>XL 7</h3>
+                    </div>
+                    <NavTabs />
+                </>
+            ) : null}
+
             <div
                 className={`transition transform 
                 ${open ? '-translate-x-80' : 'translate-x-0'}`}
@@ -44,25 +72,62 @@ export default function Nav({ children }) {
                 }`}
             ></div>
 
-            {/* Bottom Navbar */}
-            {asPath === '/outlet' && (
+            {/*//* Bottom Navbar */}
+            {(pathname === '/outlet' || pathname === '/xl7') && (
                 <aside className='fixed flex justify-center px-4 transform -translate-x-1/2 bg-white rounded-lg shadow bottom-2 left-1/2 layout'>
-                    <UnstyledLink href='/outlet'>
-                        <img src='/images/outlet/float1.jpg' alt='Menu' />
-                    </UnstyledLink>
-                    <UnstyledLink href='/outlet'>
-                        <img src='/images/outlet/float2.jpg' alt='Menu' />
-                    </UnstyledLink>
-                    <UnstyledLink href='/outlet'>
-                        <img src='/images/outlet/float3.jpg' alt='Menu' />
-                    </UnstyledLink>
-                    <UnstyledLink href='/outlet'>
-                        <img src='/images/outlet/float4.jpg' alt='Menu' />
-                    </UnstyledLink>
+                    {pathname === '/outlet' ? (
+                        <>
+                            <UnstyledLink href='/outlet'>
+                                <img
+                                    src='/images/outlet/float1.jpg'
+                                    alt='Menu'
+                                />
+                            </UnstyledLink>
+                            <UnstyledLink href='/outlet'>
+                                <img
+                                    src='/images/outlet/float2.jpg'
+                                    alt='Menu'
+                                />
+                            </UnstyledLink>
+                            <UnstyledLink href='/outlet'>
+                                <img
+                                    src='/images/outlet/float3.jpg'
+                                    alt='Menu'
+                                />
+                            </UnstyledLink>
+                            <UnstyledLink href='/outlet'>
+                                <img
+                                    src='/images/outlet/float4.jpg'
+                                    alt='Menu'
+                                />
+                            </UnstyledLink>
+                        </>
+                    ) : (
+                        <>
+                            <button
+                                onClick={openModal}
+                                className='self-center block px-12 py-4 mr-4 text-sm font-semibold text-white bg-primary-400'
+                            >
+                                Booking Mobil
+                            </button>
+                            <UnstyledLink href='/xl7'>
+                                <img
+                                    src='/images/outlet/float1.jpg'
+                                    alt='Menu'
+                                />
+                            </UnstyledLink>
+                            <UnstyledLink href='/xl7'>
+                                <img
+                                    src='/images/outlet/float4.jpg'
+                                    alt='Menu'
+                                />
+                            </UnstyledLink>
+                        </>
+                    )}
                 </aside>
             )}
 
-            {/* Nav Sidebar */}
+            {/*//* Nav Sidebar */}
             <aside
                 className={`fixed z-20 top-0 right-0 flex flex-col justify-between h-full px-6 bg-white pt-14 w-80 transition-transform transform 
                 ${open ? 'translate-x-0' : 'translate-x-80'}
@@ -156,6 +221,7 @@ export default function Nav({ children }) {
                     }
                 `}</style>
             </button>
+            <Modal showModal={showModal} setShowModal={setShowModal} />
         </>
     );
 }

@@ -1,10 +1,12 @@
 import UnstyledLink from './UnstyledLink';
 import CustomLink from './CustomLink';
 import { FiMapPin, FiPhone } from 'react-icons/fi';
+import { useRouter } from 'next/router';
 
 const route = ['Beranda', 'Tentang Kami', 'Outlet', 'Blog', 'Promo'];
 
 export default function Footer() {
+    const { pathname } = useRouter();
     return (
         <footer className='bg-white'>
             <nav className='p-8 layout'>
@@ -24,10 +26,14 @@ export default function Footer() {
             <div className='px-0 py-8 text-center border-t border-b border-brandGray-100 layout'>
                 <h3 className='font-bold tracking-wide uppercase'>alamat</h3>
                 <p className='mt-1 text-sm font-bold tracking-wide'>
-                    SUZUKI Nusantara Jaya Sentosa
+                    {pathname === '/'
+                        ? 'SUZUKI Nusantara Jaya Sentosa'
+                        : 'SUZUKI NJS BUAH BATU'}
                 </p>
                 <p className='text-sm'>
-                    Jl. Soekarno - Hatta no. 289, Bojongloa Kidul Bandung 40234
+                    {pathname === '/'
+                        ? 'Jl. Soekarno - Hatta no. 289, Bojongloa Kidul Bandung 40234'
+                        : 'JL. Soekarno – Hatta No. 513 Bandung'}
                 </p>
                 <CustomLink className='mx-auto mt-4 w-52' href='/'>
                     <FiMapPin className='inline-block mr-2 text-lg' />
@@ -57,7 +63,11 @@ export default function Footer() {
                 />
                 <img className='mt-4' src='/images/footer/3.png' alt='Ecstar' />
             </div>
-            <div className='p-8 text-sm text-center text-white bg-primary-400'>
+            <div
+                className={`${
+                    pathname === '/' ? 'p-8' : 'px-8 pt-8 py-28'
+                }  text-sm text-center text-white bg-primary-400`}
+            >
                 <p>© 2020 Suzuki Indonesia.</p>
                 <p>All rights reserved. </p>
             </div>

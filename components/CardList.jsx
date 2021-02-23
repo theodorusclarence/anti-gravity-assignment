@@ -3,6 +3,7 @@ import CustomLink from './CustomLink';
 import Label from './Label';
 import UnstyledLink from './UnstyledLink';
 import { infoData, outletData } from '@/data/data';
+import Image from 'next/image';
 
 export default function CardList({ type }) {
     return (
@@ -22,11 +23,17 @@ function OutletCard({ data }) {
     return (
         <UnstyledLink href='/outlet'>
             <figure className='overflow-hidden bg-white rounded-lg shadow-md group'>
-                <img
-                    className='w-full'
-                    src={`/images/card/${data.image}.jpg`}
-                    alt='Foto Tempat'
-                />
+                <figure className='bg-gray-400'>
+                    <Image
+                        className='w-full'
+                        src={`/images/card/${data.image}.jpg`}
+                        alt='Foto Tempat'
+                        layout='responsive'
+                        width={450}
+                        height={252}
+                        priority='true'
+                    />
+                </figure>
                 <figcaption className='p-4 space-y-2'>
                     <Label>{data.label}</Label>
                     <h3 className='tracking-wide uppercase transition group-hover:text-primary-400'>
@@ -53,11 +60,17 @@ function InfoCard({ data }) {
     return (
         <UnstyledLink href='#'>
             <figure className='overflow-hidden bg-white rounded-lg shadow-md group'>
-                <img
-                    className='w-full'
-                    src={`/images/card/i${data.image}.jpg`}
-                    alt='Foto Informasi'
-                />
+                <figure className='bg-gray-400'>
+                    <Image
+                        className='w-full'
+                        src={`/images/card/i${data.image}.jpg`}
+                        alt='Foto Informasi'
+                        layout='responsive'
+                        width={450}
+                        height={252}
+                        priority='true'
+                    />
+                </figure>
                 <figcaption className='p-4 space-y-2'>
                     <p className='font-medium text-brandGray'>{data.date}</p>
                     <h3 className='transition group-hover:text-primary-400'>
