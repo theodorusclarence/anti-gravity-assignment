@@ -4,20 +4,20 @@ const description = 'Made as an assignment for AntiGRVTY Internship';
 const SEO = {
     title,
     description,
-    // canonical: 'https://theodorusclarence.com',
+    canonical: 'https://anti-gravity.theodorusclarence.com/',
     openGraph: {
         type: 'website',
         locale: 'en_IE',
-        url: 'https://theodorusclarence.com',
+        url: 'https://anti-gravity.theodorusclarence.com/',
         title,
         description,
         images: [
             {
                 url:
-                    'https://theodorusclarence.com/favicon/ms-icon-144x144.png',
+                    'https://anti-gravity.theodorusclarence.com/image/logo.png',
                 alt: title,
-                width: 144,
-                height: 144,
+                width: 30,
+                height: 36,
             },
         ],
     },
