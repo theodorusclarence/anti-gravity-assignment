@@ -2,7 +2,7 @@ import { FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa';
 import CustomLink from './CustomLink';
 import Label from './Label';
 import UnstyledLink from './UnstyledLink';
-import { infoData, outletData } from '@/data/data-card';
+import { infoData, outletData } from '@/data/data';
 
 export default function CardList({ type }) {
     return (

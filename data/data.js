@@ -75,3 +75,36 @@ export const infoData = [
             'Suzuki Peduli Gempa Maluku 2019, Bentuk Kepedulian Untuk Korban ',
     },
 ];
+
+export const carData = [
+    {
+        image: 1,
+        title: 'XL 7',
+        price: 'Rp 232.000.000',
+    },
+    {
+        image: 2,
+        title: 'All New Ertiga',
+        price: 'Rp 207.000.000',
+    },
+    {
+        image: 3,
+        title: 'All New Ertiga Suzuki Sport',
+        price: 'Rp 252.000.000',
+    },
+    {
+        image: 4,
+        title: 'New Ignis',
+        price: 'Rp 171.000.000',
+    },
+    {
+        image: 5,
+        title: 'New Carry Pick-Up',
+        price: 'Rp 145.600.000',
+    },
+    {
+        image: 6,
+        title: 'New Carry Luxury',
+        price: 'Rp 159.100.000',
+    },
+];

@@ -2,11 +2,20 @@ import { useState } from 'react';
 import { FiPhone } from 'react-icons/fi';
 import CustomLink from './CustomLink';
 import UnstyledLink from './UnstyledLink';
+import { useRouter } from 'next/router';
 
-const route = ['Beranda', 'Tentang Kami', 'Outlet', 'Blog', 'Promo'];
+const route = [
+    'Beranda',
+    'Tentang Kami',
+    'Mobil',
+    'Service',
+    'Sparepart',
+    'Hubungi Kami',
+];
 
 export default function Nav({ children }) {
     const [open, setOpen] = useState(false);
+    const { asPath } = useRouter();
     return (
         <>
             <header
@@ -35,6 +44,25 @@ export default function Nav({ children }) {
                 }`}
             ></div>
 
+            {/* Bottom Navbar */}
+            {asPath === '/outlet' && (
+                <aside className='fixed flex justify-center px-4 transform -translate-x-1/2 bg-white rounded-lg shadow bottom-2 left-1/2 layout'>
+                    <UnstyledLink href='/outlet'>
+                        <img src='/images/outlet/float1.jpg' alt='Menu' />
+                    </UnstyledLink>
+                    <UnstyledLink href='/outlet'>
+                        <img src='/images/outlet/float2.jpg' alt='Menu' />
+                    </UnstyledLink>
+                    <UnstyledLink href='/outlet'>
+                        <img src='/images/outlet/float3.jpg' alt='Menu' />
+                    </UnstyledLink>
+                    <UnstyledLink href='/outlet'>
+                        <img src='/images/outlet/float4.jpg' alt='Menu' />
+                    </UnstyledLink>
+                </aside>
+            )}
+
+            {/* Nav Sidebar */}
             <aside
                 className={`fixed z-20 top-0 right-0 flex flex-col justify-between h-full px-6 bg-white pt-14 w-80 transition-transform transform 
                 ${open ? 'translate-x-0' : 'translate-x-80'}
@@ -44,11 +72,11 @@ export default function Nav({ children }) {
                     <nav className='pb-4 border-b border-brandGray-100'>
                         <ul className='space-y-3'>
                             {route.map((data) => (
-                                <li>
+                                <li key={data}>
                                     <h3 className='text-lg font-semibold'>
                                         <UnstyledLink
-                                            className='transition hover:text-primary-400'
-                                            href='#'
+                                            className='block transition hover:text-primary-400'
+                                            href='/'
                                         >
                                             {data}
                                         </UnstyledLink>

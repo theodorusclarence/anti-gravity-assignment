@@ -10,7 +10,7 @@ export default function Footer() {
             <nav className='p-8 layout'>
                 <ul className='flex justify-around text-sm font-medium'>
                     {route.map((data) => (
-                        <li>
+                        <li key={data}>
                             <UnstyledLink
                                 className='transition hover:text-primary-400'
                                 href='#'
