@@ -12,7 +12,7 @@ export default function XlTabs() {
 
     return (
         <div className='flex flex-col items-center space-y-4'>
-            <h3 className='tracking-wide'>TIPE & WARNA</h3>
+            <h3 className='text-lg tracking-wide'>TIPE & WARNA</h3>
             <nav className='flex w-80'>
                 <button
                     onClick={() => setTabOpen(1)}
@@ -62,7 +62,7 @@ export default function XlTabs() {
                         <button
                             onClick={() => setColor(index + 1)}
                             style={{ backgroundColor: c }}
-                            className={`w-8 h-8 border-4 transition rounded-full shadow-lg ${
+                            className={`w-10 h-10 border-2 transition rounded-full shadow-md ${
                                 color - 1 === index
                                     ? 'border-primary-400'
                                     : 'border-white'

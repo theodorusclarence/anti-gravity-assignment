@@ -36,7 +36,7 @@ export const outletData = [
     },
     {
         image: 6,
-        label: 'Sales, Service, Sparepart',
+        label: 'Sales',
         title: 'SUZUKI NJS DAGO',
         phone: '(022) 6002512',
         address: 'JL. IR.H. Juanda (Dago) No. 75 Bandung',

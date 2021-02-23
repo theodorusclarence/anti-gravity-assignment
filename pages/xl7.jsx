@@ -53,12 +53,15 @@ export default function CarPage() {
                             membuat XL7 menjadi SUV yang luar biasa di kelasnya
                         </p>
                         <div className='flex justify-center mt-4 space-x-4'>
-                            <CustomLinkOnBlue className='px-4' href='/xl7'>
+                            <CustomLinkOnBlue
+                                className='px-4 tracking-wide uppercase'
+                                href='/xl7'
+                            >
                                 Unduh Brosur
                             </CustomLinkOnBlue>
                             <CustomLinkOnBlue
                                 primary
-                                className='px-4'
+                                className='px-4 tracking-wide uppercase'
                                 href='/xl7'
                             >
                                 Harga
@@ -73,7 +76,7 @@ export default function CarPage() {
                 </section>
                 <section id='eksterior' className='bg-primary-400'>
                     <article className='flex flex-col w-full py-8 text-center text-white layout'>
-                        <h3 className='mb-4'>Eksterior</h3>
+                        <h3 className='mb-4 uppercase'>Eksterior</h3>
                         <figure className=''>
                             <Image
                                 src='/images/xl/xl7-eksterior.png'

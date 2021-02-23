@@ -12,7 +12,7 @@ export default function XlAccordionSection() {
                     expandedClassName='rounded border'
                     className='shadow-brand-bottom'
                 >
-                    <div className='p-2'>
+                    <div className='p-4'>
                         <table className='w-full'>
                             <tbody className='text-sm'>
                                 {data[num].table.map((d, index) => (
