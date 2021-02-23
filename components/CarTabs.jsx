@@ -67,6 +67,7 @@ function TabCard({ data }) {
                             width={145}
                             height={93}
                             layout='responsive'
+                            loading='eager'
                         />
                     </figure>
                     <div className='flex flex-col items-start justify-center w-full px-4 space-y-1'>

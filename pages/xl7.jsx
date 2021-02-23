@@ -13,7 +13,7 @@ export default function CarPage() {
     return (
         <>
             <NextSeo />
-            <main className='pt-32 bg-brandGray-200'>
+            <main className='pt-32 pb-4 bg-brandGray-200'>
                 <section id='overview' className='w-full bg-primary-400 layout'>
                     <Carousel>
                         {[1, 2, 3, 4].map((item) => (
@@ -133,10 +133,10 @@ export default function CarPage() {
                         </h3>
                         {priceData.map((data) => (
                             <button className='flex w-full px-8 py-3 mt-4 text-sm text-left border rounded bg-brandGray-200 shadow-brand-bottom'>
-                                <p className='w-full font-semibold'>
+                                <p className='w-full px-2 font-semibold'>
                                     {data.title}
                                 </p>
-                                <p className='w-full font-semibold'>
+                                <p className='w-full px-2 font-semibold'>
                                     {data.price}
                                 </p>
                             </button>

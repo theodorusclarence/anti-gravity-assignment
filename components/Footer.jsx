@@ -3,18 +3,27 @@ import CustomLink from './CustomLink';
 import { FiMapPin, FiPhone } from 'react-icons/fi';
 import { useRouter } from 'next/router';
 
-const route = ['Beranda', 'Tentang Kami', 'Outlet', 'Blog', 'Promo'];
-
 export default function Footer() {
     const { pathname } = useRouter();
+    const route =
+        pathname === '/'
+            ? ['Beranda', 'Tentang Kami', 'Outlet', 'Blog', 'Promo']
+            : [
+                  'Beranda',
+                  'Tentang Kami',
+                  'Mobil',
+                  'Service',
+                  'Sparepart',
+                  'Hubungi Kami',
+              ];
     return (
         <footer className='bg-white'>
-            <nav className='p-8 layout'>
-                <ul className='flex justify-around text-sm font-medium'>
+            <nav className='p-6 layout'>
+                <ul className='flex flex-wrap justify-around text-sm font-medium'>
                     {route.map((data) => (
                         <li key={data}>
                             <UnstyledLink
-                                className='transition hover:text-primary-400'
+                                className='inline-block p-1 transition hover:text-primary-400'
                                 href='#'
                             >
                                 {data}
@@ -41,7 +50,9 @@ export default function Footer() {
                 </CustomLink>
                 <CustomLink primary className='mx-auto mt-3 w-52' href='/'>
                     <FiPhone className='inline-block mr-2 text-lg' />
-                    <span>(022) 5204645</span>
+                    <span>
+                        {pathname === '/' ? '(022) 5204645' : '(022) 7300723'}
+                    </span>
                 </CustomLink>
             </div>
             <div className='flex flex-col items-center px-0 py-8 layout'>
